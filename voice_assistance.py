@@ -27,20 +27,20 @@ def take_command():
 def run_alexa():
     command=take_command()
     print(command)
-    if 'play' in command:
+    if 'play' in command:                   #to play music
         song=command.replace('play','')
         talk('playing' + song)
         pywhatkit.playonyt(song)
-    elif 'time' in command:
+    elif 'time' in command:         #to tell time
         time=datetime.datetime.now().strftime('%I:%M %p')
         print(time)
         talk('current time is' + time)
-    elif 'information' in command:
+    elif 'information' in command:            #to access wikipedia
         person=command.replace('infomation','')
         info=wikipedia.summary(person,3)
         print(info)
         talk(info)
-    elif 'joke' in command:
+    elif 'joke' in command:          #to tell joke
         talk(pyjokes.get_joke())
 while True:
     run_alexa()
